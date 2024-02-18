@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { addBoilerPlateMeshes, addStandardMesh } from './addMeshes'
 import { addLight } from './addLights'
 
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGLRenderer({ antialias: true })
 const camera = new THREE.PerspectiveCamera(
 	75,
 	window.innerWidth / window.innerHeight,

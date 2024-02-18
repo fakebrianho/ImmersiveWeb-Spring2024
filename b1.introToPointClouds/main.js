@@ -2,8 +2,9 @@ import './style.css'
 import * as THREE from 'three'
 import { addBoilerPlateMeshes, addStandardMesh } from './addMeshes'
 import { addLight } from './addLights'
+import Model from './Model'
 
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGLRenderer({ antialias: true })
 const camera = new THREE.PerspectiveCamera(
 	75,
 	window.innerWidth / window.innerHeight,
@@ -13,12 +14,26 @@ const camera = new THREE.PerspectiveCamera(
 const scene = new THREE.Scene()
 const meshes = {}
 const lights = {}
+const mixers = []
+const clock = new THREE.Clock()
 
 init()
+
 function init() {
 	//set up our renderer default settings, add scene/canvas to webpage
 	renderer.setSize(window.innerWidth, window.innerHeight)
 	document.body.appendChild(renderer.domElement)
+
+	//models
+	const TempModel = new Model({
+		url: '/heart.glb',
+		meshes: meshes,
+		mixers: mixers,
+		scene: scene,
+		animationState: true,
+		replace: true,
+	})
+	TempModel.initPoints()
 
 	meshes.default = addBoilerPlateMeshes()
 	meshes.standard = addStandardMesh()
@@ -43,6 +58,13 @@ function resize() {
 
 function animate() {
 	requestAnimationFrame(animate)
+	const delta = clock.getDelta()
+	for (const mixer of mixers) {
+		mixer.update(delta)
+	}
+	// if (meshes.model) {
+	// 	meshes.model.rotation.y += 0.01
+	// }
 	meshes.default.rotation.x += 0.01
 	meshes.default.rotation.y -= 0.01
 	meshes.standard.rotation.x -= 0.01
