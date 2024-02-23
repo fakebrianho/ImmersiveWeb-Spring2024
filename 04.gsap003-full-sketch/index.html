@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+  <div class='loader'>
+    <div class='enterButton'>
+      <p>Enter</p>
+    </div>
+    <div class="lds-circle">
+      <div></div>
+    </div>
+  </div>
+  <audio class='introAudio'>
+    <source src='/intro.mp3' type='audio/mpeg'>
+  </audio>
+  <audio class='light'>
+    <source src='/light.mp3' type='audio/mpeg'>
+  </audio>
+  <div id="app"></div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
