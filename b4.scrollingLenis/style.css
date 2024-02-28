@@ -1,0 +1,81 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.webgl {
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+/* html.lenis {
+	height: auto;
+} */
+/* .lenis.lenis-smooth {
+	scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+} */
+/* .lenis.lenis-stopped {
+	overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+	pointer-events: none;
+} */
+.scroll-container {
+	z-index: 4;
+	position: relative;
+	border: 3px solid black;
+}
+.poem h2 {
+	font-size: 16px;
+}
+
+.poem {
+	width: 100vw;
+	font-family: 'Courier New', Courier, monospace;
+	height: 100vh;
+	border: 2px solid red;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+
+.poem.left {
+	justify-content: start;
+}
+
+.poem.right {
+	justify-content: end;
+}
+
+.poem_container {
+	text-align: start;
+	max-width: 400px;
+	border: 2px solid blue;
+}
+
+.poem.right > .poem_container {
+	text-align: end;
+}
+
+.poem p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#wrapper-mandatory {
+	overflow-y: scroll !important; /* Force scrolling */
+
+	height: 100vh;
+}
+
+#root-mandatory {
+	height: fit-content;
+}
