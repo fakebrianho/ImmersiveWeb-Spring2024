@@ -1,0 +1,17 @@
+Step 1:
+    Create a video element in index.html see line 13 in index.html make the display none
+
+Step 2:
+    Create a video variable globally in main.js, see line 23 in main.js
+
+Step 3:
+    Create a webcam function, inside we want to select the video element, create a new THREE.VideoTexture and pass in the video 
+
+Step 4: 
+    Create our basic Mesh with any geometry and material we want, we're going to use the videotexture as our map for our material.
+
+Step 5:
+    Copy and paste the navigator.mediaDevice code. Allows us to stream the video element our texture. 
+
+Step 6: 
+    Profit. 
