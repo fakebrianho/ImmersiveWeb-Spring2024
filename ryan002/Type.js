@@ -1,6 +1,6 @@
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
-import { TextureLoader, MeshBasicMaterial, Vector3, Mesh } from 'three'
+import { MeshBasicMaterial, Vector3, Mesh } from 'three'
 
 export default class Type {
 	constructor(props) {

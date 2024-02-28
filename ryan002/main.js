@@ -29,13 +29,9 @@ function init() {
 	renderer.setSize(window.innerWidth, window.innerHeight)
 	document.body.appendChild(renderer.domElement)
 
-	meshes.default = addBoilerPlateMeshes()
-	meshes.standard = addStandardMesh()
 	lights.default = addLight()
 
 	scene.add(lights.default)
-	scene.add(meshes.standard)
-	scene.add(meshes.default)
 
 	camera.position.set(0, 0, 5)
 	typography()
@@ -50,13 +46,48 @@ function typography() {
 		material: new THREE.MeshMatcapMaterial({
 			matcap: tLoader.load('/mat.png'),
 		}),
-		position: new THREE.Vector3(-1, 0, 0),
+		position: new THREE.Vector3(-5, 0, 0),
 		meshes: meshes,
 		scene: scene,
 		text: 'Hello',
 		name: 'word001',
 	})
 	word1.init()
+	const word2 = new Type({
+		fontFile: '/IM.json',
+		material: new THREE.MeshBasicMaterial({
+			wireframe: true,
+		}),
+		position: new THREE.Vector3(-2, 0, 0),
+		meshes: meshes,
+		scene: scene,
+		text: 'THREE.JS',
+		name: 'word002',
+	})
+	word2.init()
+
+	const word3 = new Type({
+		fontFile: '/ARCHIVO.json',
+		material: new THREE.MeshPhysicalMaterial({
+			map: tLoader.load('Stylized_Fur_002_basecolor.jpg'),
+			normalMap: tLoader.load('Stylized_Fur_002_normal.jpg'),
+			aoMap: tLoader.load('Stylized_Fur_002_ambientOcclusion.jpg'),
+			displacementMap: tLoader.load('Stylized_Fur_002_height.png'),
+			displacementScale: 0.1,
+			metalness: 0.1,
+			roughness: 0.0,
+			transmission: 0.1,
+			ior: 2.33,
+		}),
+		curveSegments: 64,
+		bevelSegments: 32,
+		position: new THREE.Vector3(2, 0, 0),
+		meshes: meshes,
+		scene: scene,
+		text: 'WORLD',
+		name: 'word003',
+	})
+	word3.init()
 }
 
 function resize() {
@@ -71,10 +102,6 @@ function animate() {
 	requestAnimationFrame(animate)
 	const delta = clock.getDelta()
 	controls.update()
-	meshes.default.rotation.x += 0.01
-	meshes.default.rotation.y -= 0.01
-	meshes.standard.rotation.x -= 0.01
-	meshes.standard.rotation.z -= 0.01
 
 	renderer.render(scene, camera)
 }
