@@ -1,0 +1,13 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	/* color: white; */
+}
+
+.caption {
+	width: 8vw;
+	height: 3vh;
+	background-color: navy;
+}
